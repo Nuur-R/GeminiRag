@@ -7,9 +7,13 @@ import faiss
 import numpy as np
 import google.generativeai as genai
 from typing import List, Dict, Any
+from dotenv import load_dotenv
+
+# Load environment variables from .env file if it exists
+load_dotenv()
 
 # Konfigurasi API key
-GOOGLE_API_KEY = "AIzaSyBTtRe2IA3o14lxAMOsO83Xhsy2KxSIlMg"  # Ganti dengan API key Anda
+GOOGLE_API_KEY = os.environ.get("GOOGLE_API_KEY")  # Ganti dengan API key Anda
 genai.configure(api_key=GOOGLE_API_KEY)
 
 class SimpleRAG:
